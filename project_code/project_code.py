@@ -1,5 +1,41 @@
-# Thompson's Construction in Python
+# Regular expression matcher
+# John Shields
 
+# Shunting Yard Algorithm
+def shunt(infix):
+
+   # specials dictionary
+   specials = {'*': 50, '.': 40, '|': 30}
+
+   pofix = ""
+   stack = ""
+
+   for c in infix:
+      if c == '(':
+         stack = stack + c
+      elif c == ')':
+         while stack[-1] != '(':
+            # puting statements together
+            pofix, stack = pofix + stack [-1], stack[:-1]
+         stack = stack[:-1]
+      elif c in specials:
+         # looks for c in specials dictionary, if not found, give value 0
+         # looks for top of stack in specials dictionary,  if not found, give value 0
+         # n/ compares 1 against the other
+         while stack and specials.get(c, 0) <= specials.get(stack[-1], 0):
+            pofix, stack = pofix + stack [-1], stack[:-1]
+         stack = stack + c
+
+      else:
+         pofix = pofix + c
+
+   while stack:
+      # puting statements together
+      pofix, stack = pofix + stack [-1], stack[:-1]
+ 
+   return pofix
+
+ # Thompson's Construction
  # represents a state with two arrows, labelled by label
  # use 'None' for a label representing 'e' arrows
 class state:
@@ -109,9 +145,58 @@ def compiletom(pofix):
     # nfastack  should onlt have a single nfa on it at the point.      
     return nfastack.pop()
 
+# Return the set of states that can be reached from state following e arrows
+def followes(state):
+# create a new set, with state as its only member
+    states = set()
+    states.add(state)
+
+# check if state has arrows labeeled e from it
+    if state.label is None:
+        # Check if edge1 is a state
+        if state.edge1 is not None:
+            # if theres an edge1, follow it
+            states |= followes(state.edge1)
+        # check if edge2 is a state
+        if state.edge2 is not None:
+            # if theres an edge2, follow it
+            states |= followes(state.edge2)
+
+
+    return states
+
+# matching
+def match(infix, string):
+    # Shunt and compile  the regular expression
+    postfix = shunt(infix)
+    nfa = compiletom(postfix)
+
+    # current set of states and the next set of the states
+    current = set()
+    upcomin = set()
+
+    # add the initial state to the current set
+    current |= followes(nfa.initial)
+
+    # Loop through each character in the string
+    for s in string:
+        # Loop through the current set of states
+        for c in current:
+            # check of that state is labelled s
+          if c.label == s:
+            # Add edge1 state to the upcomin set
+            upcomin |= followes(c.edge1)
+            # set current to upcomin, and clear out next
+        current = upcomin
+        upcomin = set()
+
+        # check if the accept state is in the set of current states
+        return (nfa.accept in current)
+
+# tests
 infixes = ["a.b.c*, a.(b|d).c*", "(a.(b|d))*", "a.(b.b)*.c"]
 strings = ["", "abc", "abbc", "abcc", "abad", "abbbc"]
 
-print(compiletom("ab.cd.|"))
-print(compiletom("aa.*"))
-print(compiletom("(0|(1(01*(00)*0)*1)*)*"))
+for i in infixes:
+    for s in strings:
+        print(match(i, s), i, s)
