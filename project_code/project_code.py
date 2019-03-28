@@ -1,11 +1,11 @@
-# Regular expression matcher
+# Graph Theory Project
 # John Shields
 
 # Shunting Yard Algorithm
 def shunt(infix):
 
    # specials dictionary
-   specials = {'*': 50, '.': 40, '|': 30}
+   specials = {'*': 50, '.': 40, '|': 30, '+':40, '?':40}
 
    pofix = ""
    stack = ""
@@ -58,6 +58,7 @@ class nfa:
 # pofix allows to loop one character at a time 
 # until the regular expression is complete
 def compiletom(pofix):
+
     nfastack = []
  
     for c in pofix:
@@ -162,7 +163,7 @@ def followes(state):
             # if theres an edge2, follow it
             states |= followes(state.edge2)
 
-
+    # return the set of
     return states
 
 # matching
@@ -193,10 +194,24 @@ def match(infix, string):
         # check if the accept state is in the set of current states
         return (nfa.accept in current)
 
-# tests
+## testing code
+
+print('\n Test Shunting Yard Algortithm \n')      
+# test Shunting Yard Algortithm
+print(shunt("(a.b)|(c*.d)"))
+
+print('\n Test Thompsons Construction \n')  
+# test Thompsons Construction
+print(compiletom("ab.cd.|"))
+print(compiletom("aa.*"))
+print(compiletom("(0|(1(01*(00)*0)*1)*)*"))
+
+# Regular Experession tests
 infixes = ["a.b.c*, a.(b|d).c*", "(a.(b|d))*", "a.(b.b)*.c"]
 strings = ["", "abc", "abbc", "abcc", "abad", "abbbc"]
 
+print('\n Test Matching \n')
+# test Matching
 for i in infixes:
     for s in strings:
         print(match(i, s), i, s)
