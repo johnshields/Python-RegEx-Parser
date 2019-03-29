@@ -10,7 +10,7 @@
 def shunt(infix):
 
    # specials dictionary
-   specials = {'*': 50, '.': 40, '|': 30, '+':40, '?':40}
+   specials = {'*': 50, '.': 40, '|': 30, '+':40, '?':35}
 
    pofix = ""
    stack = ""
@@ -174,7 +174,9 @@ def followes(state):
 # matching
 def match(infix, string):
     # Shunt and compile  the regular expression
+    # calls the shunt funciton
     postfix = shunt(infix)
+    # calls the compiletom function
     nfa = compiletom(postfix)
 
     # current set of states and the next set of the states
@@ -189,15 +191,15 @@ def match(infix, string):
         # Loop through the current set of states
         for c in current:
             # check of that state is labelled s
-          if c.label == s:
-            # Add edge1 state to the upcomin set
-            upcomin |= followes(c.edge1)
-            # set current to upcomin, and clear out next
+            if c.label == s:
+                # Add edge1 state to the upcomin set
+                upcomin |= followes(c.edge1)
+        # set current to upcomin, and clear out next
         current = upcomin
         upcomin = set()
 
         # check if the accept state is in the set of current states
-        return (nfa.accept in current)
+    return (nfa.accept in current)
 
 # testing code
 
@@ -218,8 +220,17 @@ strings = ["abc", "abbc", "abcc", "abad", "abbbc"]
 print('\n Test Matching \n')
 # test Matching
 #for exp, res in zip(infixes, strings):
- #   print(match(exp, res), exp, res)
+#   print(match(exp, res), exp, res)
 
 for exp in infixes:
   for res in strings:
       print(match(exp, res), exp, res)
+
+# input to match
+print('\n Input a regular expression to be tested \n')
+while True:
+    infixes = (input("Input infix regular expression: ")) 
+    string = (input("Input the string to match: "))
+    print('\n Infix and String match \n')
+    print(match(infixes, string), infixes, string)
+    print('\n')
