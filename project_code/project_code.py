@@ -1,6 +1,11 @@
 # Graph Theory Project
 # John Shields
 
+# References
+# https://web.microsoftstream.com/video/cfc9f4a2-d34f-4cde-afba-063797493a90
+# https://web.microsoftstream.com/video/5e2a482a-b1c9-48a3-b183-19eb8362abc9
+# https://web.microsoftstream.com/video/6b4ba6a4-01b7-4bde-8f85-b4b96abc902a
+
 # Shunting Yard Algorithm
 def shunt(infix):
 
@@ -194,7 +199,7 @@ def match(infix, string):
         # check if the accept state is in the set of current states
         return (nfa.accept in current)
 
-## testing code
+# testing code
 
 print('\n Test Shunting Yard Algortithm \n')      
 # test Shunting Yard Algortithm
@@ -207,11 +212,14 @@ print(compiletom("aa.*"))
 print(compiletom("(0|(1(01*(00)*0)*1)*)*"))
 
 # Regular Experession tests
-infixes = ["a.b.c*, a.(b|d).c*", "(a.(b|d))*", "a.(b.b)*.c"]
-strings = ["", "abc", "abbc", "abcc", "abad", "abbbc"]
+infixes = ["a.b.c" ,"a.b.c*, a.(b|d).c*", "(a.(b|d))*", "a.(b.b)*.c"]
+strings = ["abc", "abbc", "abcc", "abad", "abbbc"]
 
 print('\n Test Matching \n')
 # test Matching
-for i in infixes:
-    for s in strings:
-        print(match(i, s), i, s)
+#for exp, res in zip(infixes, strings):
+ #   print(match(exp, res), exp, res)
+
+for exp in infixes:
+  for res in strings:
+      print(match(exp, res), exp, res)
