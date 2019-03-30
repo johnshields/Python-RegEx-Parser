@@ -2,3 +2,21 @@ links:
 
 https://jakevdp.github.io/WhirlwindTourOfPython/14-strings-and-regular-expressions.html
 https://docs.python.org/3.3/howto/regex.html
+
+Regular Expression Matching
+https://swtch.com/~rsc/regexp/regexp1.html
+
+The Shunting Yard Algorithm
+http://www.oxfordmathcenter.com/drupal7/node/628
+
+
+
+# References
+# https://web.microsoftstream.com/video/cfc9f4a2-d34f-4cde-afba-063797493a90
+# https://web.microsoftstream.com/video/a29536d4-e975-4172-a470-40b4fe28866e
+
+# https://web.microsoftstream.com/video/29de6c7c-9379-46d3-99e8-8a3dbafe391f
+# https://web.microsoftstream.com/video/5e2a482a-b1c9-48a3-b183-19eb8362abc9
+
+# https://web.microsoftstream.com/video/6b4ba6a4-01b7-4bde-8f85-b4b96abc902a
+# https://web.microsoftstream.com/video/1b3e7f4f-69e0-4316-853f-c63b14f9c36a
