@@ -126,6 +126,39 @@ def compiletom(pofix):
             # pushes newnfa 
             nfastack.append(newnfa)
 
+        elif c == '+':
+            # pop nfa from stack
+            nfa1 = nfastack.pop()
+            # create a new initial and accept states
+            initial = state()
+            accept = state()
+            # join the new initial stse to nfa1's initial state and the new accept state.
+            initial.edge1 = nfa1.initial
+            # join the old accept state to the new accept state and nfa1's initial state.
+            nfa1.accept.edge1 = nfa1.initial
+            nfa1.accept.edge2 = accept
+             # push new NFA to the stack
+            newnfa = nfa(initial, accept)
+            # pushes newnfa 
+            nfastack.append(newnfa)
+
+        elif c == '?':
+            # pop nfa from stack
+            nfa1 = nfastack.pop()
+            # create a new initial and accept states
+            initial = state()
+            accept = state()
+            # join the new initial stse to nfa1's initial state and the new accept state.
+            initial.edge1 = nfa1.initial
+            initial.edge2 = accept
+            # join the old accept state to the new accept state and nfa1's initial state.
+            nfa1.accept.edge1 = nfa1.initial
+            nfa1.accept.edge2 = accept
+            # push new NFA to the stack
+            newnfa = nfa(initial, accept)
+            # pushes newnfa 
+            nfastack.append(newnfa)
+
         else:
             # create new initial and accept states
             # creates new nfa
@@ -221,16 +254,16 @@ print('\n Test Matching \n')
 # test Matching
 #for exp, res in zip(infixes, strings):
 #   print(match(exp, res), exp, res)
-
+# test Matching
 for exp in infixes:
   for res in strings:
       print(match(exp, res), exp, res)
 
-# input to match
+# input prompt to match Regular Expressions
 print('\n Input a regular expression to be tested \n')
 while True:
     infixes = (input("Input infix regular expression: ")) 
-    string = (input("Input the string to match: "))
+    string = (input("Input string to match: "))
     print('\n Infix and String match \n')
     print(match(infixes, string), infixes, string)
     print('\n')
