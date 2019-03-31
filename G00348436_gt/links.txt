@@ -2,6 +2,8 @@ links:
 
 https://jakevdp.github.io/WhirlwindTourOfPython/14-strings-and-regular-expressions.html
 https://docs.python.org/3.3/howto/regex.html
+https://www.tutorialspoint.com/python/python_reg_expressions.htm
+https://www.youtube.com/watch?v=paOPoZyjzdg
 
 Regular Expression Matching
 https://swtch.com/~rsc/regexp/regexp1.html
