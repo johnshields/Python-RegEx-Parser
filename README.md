@@ -89,7 +89,8 @@ The stack works as last in first out
 9. Set it's initial state to the initial state
 10. Push new NFA to the stack # ¬ returns an instance of the nfa class
 11. push nfa
-# nfastack should only have a single nfa on it at the point.  
+
+- nfastack should only have a single nfa on it at the point.  
 
 
 # Following e arrows
@@ -104,10 +105,10 @@ The stack works as last in first out
 
 # Matching Regular Expressions
 
-####
+==================================
 'current' = THE CURRENT SET
 'upcomin' = THE NEXT SET UPCOMING
-####
+==================================
 
 Shunt and compile the regular expression from the funtions in code
 1. Call the shunt and compiletom function
@@ -177,9 +178,9 @@ Output:
 False (a.(b|d))* abc
 # This tells that this regex infix does not match with this string
 
-####
+====================================================
 crtl+c and then press the 'Enter' key to exit prompt
-####
+====================================================
 
 # Problems I had
 Besides the typical errors of misspelling and missing :, ), etc. I had one problem that stopped my progress with the project. When the match function was called all the matches would come out as 'False' and 'None'. After attempting to find errors that are not clearly and do not cause the code to crash I tracked it down to my indentation in the for loop in the match function. After I fixed the indentation the output displayed both 'False' and 'True'.
@@ -199,19 +200,24 @@ https://en.wikipedia.org/wiki/Thompson%27s_construction
 https://www.youtube.com/watch?reload=9&v=RYNN-tb9WxI
 https://www.w3schools.com/python/python_functions.asp
 
+# References
+https://web.microsoftstream.com/video/a29536d4-e975-4172-a470-40b4fe28866e
+https://web.microsoftstream.com/video/29de6c7c-9379-46d3-99e8-8a3dbafe391f
+https://web.microsoftstream.com/video/1b3e7f4f-69e0-4316-853f-c63b14f9c36a
+
 # References for code
 # Functions
-# https://www.w3schools.com/python/python_functions.asp
+https://www.w3schools.com/python/python_functions.asp
 # Shunting Yard Algorithm
-# https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_01.html
-# https://web.microsoftstream.com/video/cfc9f4a2-d34f-4cde-afba-063797493a90
-# http://www.martinbroadhurst.com/shunting-yard-algorithm-in-python.html
+https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_01.html
+https://web.microsoftstream.com/video/cfc9f4a2-d34f-4cde-afba-063797493a90
+http://www.martinbroadhurst.com/shunting-yard-algorithm-in-python.html
 # Thompson's Construction
-# https://web.microsoftstream.com/video/5e2a482a-b1c9-48a3-b183-19eb8362abc9
-# https://xysun.github.io/posts/regex-parsing-thompsons-algorithm.html
+https://web.microsoftstream.com/video/5e2a482a-b1c9-48a3-b183-19eb8362abc9
+https://xysun.github.io/posts/regex-parsing-thompsons-algorithm.html
 # Matching
-# https://web.microsoftstream.com/video/6b4ba6a4-01b7-4bde-8f85-b4b96abc902a
+https://web.microsoftstream.com/video/6b4ba6a4-01b7-4bde-8f85-b4b96abc902a
 # Prompt
-# https://stackoverflow.com/questions/70797/user-input-and-command-line-arguments
-# https://stackabuse.com/getting-user-input-in-python/
-# https://stackoverflow.com/questions/3754620/a-basic-question-about-while-true
+https://stackoverflow.com/questions/70797/user-input-and-command-line-arguments
+https://stackabuse.com/getting-user-input-in-python/
+https://stackoverflow.com/questions/3754620/a-basic-question-about-while-true
