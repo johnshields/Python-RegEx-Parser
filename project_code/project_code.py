@@ -2,9 +2,21 @@
 # John Shields
 
 # References
+# Functions
+# https://www.w3schools.com/python/python_functions.asp
+# Shunting Yard Algorithm
+# https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_01.html
 # https://web.microsoftstream.com/video/cfc9f4a2-d34f-4cde-afba-063797493a90
+# http://www.martinbroadhurst.com/shunting-yard-algorithm-in-python.html
+# Thompson's Construction
 # https://web.microsoftstream.com/video/5e2a482a-b1c9-48a3-b183-19eb8362abc9
+# https://xysun.github.io/posts/regex-parsing-thompsons-algorithm.html
+# Matching
 # https://web.microsoftstream.com/video/6b4ba6a4-01b7-4bde-8f85-b4b96abc902a
+# Prompt
+# https://stackoverflow.com/questions/70797/user-input-and-command-line-arguments
+# https://stackabuse.com/getting-user-input-in-python/
+# https://stackoverflow.com/questions/3754620/a-basic-question-about-while-true
 
 # Shunting Yard Algorithm
 def shunt(infix):
@@ -70,7 +82,7 @@ def compiletom(pofix):
         if c == '.':
         # stack works as last in first out
         # method to go to stack 
-         # pop 2 NFAs off the stack.
+        # pop 2 NFAs off the stack.
             nfa2 = nfastack.pop()
             nfa1 = nfastack.pop()
             # merges them together
@@ -81,7 +93,7 @@ def compiletom(pofix):
             # one way to do it ¬ nfastack.append(nfa(initial, accept))
             # second way 'easier way'
             newnfa = nfa(nfa1.initial, nfa2.accept)
-            # pushes newnfa 
+            # push newnfa 
             nfastack.append(newnfa)
 
         elif c == '|':
@@ -103,7 +115,7 @@ def compiletom(pofix):
             # one way to do it ¬ nfastack.append(nfa(initial, accept))
             # second way 'easier way'
             newnfa = nfa(initial, accept)
-            # pushes newnfa 
+            # push newnfa 
             nfastack.append(newnfa)
 
         elif c == '*':
@@ -112,7 +124,7 @@ def compiletom(pofix):
             # create a new initial and accept states
             initial = state()
             accept = state()
-            # join the new initial stse to nfa1's initial state and the new accept state.
+            # join the new initial state to nfa1's initial state and the new accept state.
             initial.edge1 = nfa1.initial
             initial.edge2 = accept
             # join the old accept state to the new accept state and nfa1's initial state.
@@ -123,7 +135,7 @@ def compiletom(pofix):
             # one way to do it ¬ nfastack.append(nfa(initial, accept))
             # second way 'easier way'
             newnfa = nfa(initial, accept)
-            # pushes newnfa 
+            # push newnfa 
             nfastack.append(newnfa)
 
         elif c == '+':
@@ -166,31 +178,31 @@ def compiletom(pofix):
             # creates new nfa
             initial = state()
             # string character
-            # join the initial statesvto the accept state
+            # joins the initial states to the accept state
             # using an arrow labelled c.
             initial.label = c
             initial.edge1 = accept
             # going to create a new instance of the NFA class. 
             # set its initial state to the 
-            # initial state here that I've just created   
+            # initial state
 
             # push new NFA to the stack # ¬ returns an instance of the nfa class ¬
             # one way to do it ¬ nfastack.append(nfa(initial, accept))
             # second way 'easier way'
             newnfa = nfa(initial, accept)
-            # pushes newnfa 
+            # push newnfa 
             nfastack.append(newnfa)
 
-    # nfastack  should onlt have a single nfa on it at the point.      
+    # nfastack  should only have a single nfa on it at the point.      
     return nfastack.pop()
-
+#   
 # Return the set of states that can be reached from state following e arrows
 def followes(state):
 # create a new set, with state as its only member
     states = set()
     states.add(state)
 
-# check if state has arrows labeeled e from it
+# check if state has arrows labeled e from it
     if state.label is None:
         # Check if edge1 is a state
         if state.edge1 is not None:
@@ -201,12 +213,12 @@ def followes(state):
             # if theres an edge2, follow it
             states |= followes(state.edge2)
 
-    # return the set of
+    # return the set of states
     return states
 
 # matching
 def match(infix, string):
-    # Shunt and compile  the regular expression
+    # Shunt and compile the regular expression
     # calls the shunt funciton
     postfix = shunt(infix)
     # calls the compiletom function
@@ -237,7 +249,7 @@ def match(infix, string):
 # testing code
 
 print('\n Test Shunting Yard Algortithm \n')      
-# test Shunting Yard Algortithm
+# test Shunting Yard Algorithm
 print(shunt("(a.b)|(c*.d)"))
 
 print('\n Test Thompsons Construction \n')  
@@ -245,25 +257,30 @@ print('\n Test Thompsons Construction \n')
 print(compiletom("ab.cd.|"))
 print(compiletom("aa.*"))
 print(compiletom("(0|(1(01*(00)*0)*1)*)*"))
+print(compiletom("(0|(1(01*(00)*0)*1)*)*"))
 
-# Regular Experession tests
+# test Matching
+# creates list of infix regex
 infixes = ["a.b.c" ,"a.b.c*, a.(b|d).c*", "(a.(b|d))*", "a.(b.b)*.c"]
+# strings to match against the regex infixes
 strings = ["abc", "abbc", "abcc", "abad", "abbbc"]
 
 print('\n Test Matching \n')
-# test Matching
-#for exp, res in zip(infixes, strings):
-#   print(match(exp, res), exp, res)
-# test Matching
+# double for loop - loops throught the regex and strings
 for exp in infixes:
   for res in strings:
+      # function prints out True/False if the infix regex matches the string
       print(match(exp, res), exp, res)
 
 # input prompt to match Regular Expressions
 print('\n Input a regular expression to be tested \n')
+    # prints out True/False if the infix regex matches the string
 while True:
+    # writes a infix regex to match with string
     infixes = (input("Input infix regular expression: ")) 
+    # writes a string to match with infix regex
     string = (input("Input string to match: "))
     print('\n Infix and String match \n')
+    # function prints out True/False if the infix regex matches the string
     print(match(infixes, string), infixes, string)
     print('\n')
