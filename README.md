@@ -1,12 +1,13 @@
-# G00348436_gt
-# G00348436 - John Shields
+# Graph Theory Project
+
+#### G00348436 - John Shields
 
 ReadMe for Graph Theory Project
 
 # Project Statement
 You must write a program in the Python programming language that can build a non-deterministic finite automaton (NFA) from a regular expression, and can use the NFA to check if the regular expression matches any given string of text.
 
-# clone from github
+#### clone from github
 In cmd file directory $ git clone https://github.com/johnshields/G00348436_gt
 
 # Regular Expressions
@@ -14,7 +15,7 @@ A regular expression is a string containing a series of characters, some of whic
 
 When you want to perform string matching operations that are more complex than the operations, you use regular expressions.
 
-# Special Characters
+#### Special Characters
 
 ., |, *, +, ?, (), $
 
@@ -93,7 +94,7 @@ The stack works as last in first out
 - nfastack should only have a single nfa on it at the point.  
 
 
-# Following e arrows
+#### Following e arrows
 
 1. Return the set of states that can be reached from state following e arrows
 2. Check if state has arrows labeled e from it
@@ -103,7 +104,7 @@ The stack works as last in first out
 6. If theres an edge2, follow it
 7. Return the set of states
 
-# Matching Regular Expressions
+#### Matching Regular Expressions
 
 ==================================
 'current' = THE CURRENT SET
@@ -120,14 +121,14 @@ Shunt and compile the regular expression from the funtions in code
 6. Set current to upcomin, and clear out next
 7. Check if the accept state is in the set of current states
 
-# Testing the code 
+#### Testing the code 
 
-# Testing the Shunting Yard Algorithm
+#### Testing the Shunting Yard Algorithm
 Testing the Shunting Yard Algorithm to see if actually takes a Regular Expression from infix notion to postfix notation.
 
 regex e.g. = (a.b)|(c*.d)
 
-# Print the calling of the fuction 'shunt'
+#### Print the calling of the fuction 'shunt'
 print(shunt("(a.b)|(c*.d)"))
 
 Output:
@@ -137,13 +138,13 @@ Output:
 
 Test to see if the compiletom function can actually make a regex into a NFA.
 
-# Print the calling of the fuction 'compiletom'
+#### Print the calling of the fuction 'compiletom'
 print(compiletom("ab.cd.|"))
 
 Output:
 <__main__.nfa object at 0x0000028BACDB97F0>
 
-# Testing Matching Regular Expressions
+#### Testing Matching Regular Expressions
 1. Create list of infix regex + Strings to match against the regex infixes.
 infixes = ["a.b.c" ,"a.b.c*, a.(b|d).c*", "(a.(b|d))*", "a.(b.b)*.c"]
 
@@ -155,14 +156,14 @@ strings = ["abc", "abbc", "abcc", "abad", "abbbc"]
 infix = a.b.c
 string = abc
 
-# Print the calling of the function 'match'
+#### Print the calling of the function 'match'
 print(match(exp, res), exp, res)
 
 Output:
 True a.b.c abc
-# This tells that this regex infix matches with this string
+#### This tells that this regex infix matches with this string
 
-# Prompt for tests to match Regular Expressions
+#### Prompt for tests to match Regular Expressions
 
 Type in any Infix and string to be matched and tested
 
@@ -171,21 +172,21 @@ string = abc
 
 while loop prints out True/False if the infix regex matches the string
 
-# Function prints out True/False if the infix regex matches the string
+#### Function prints out True/False if the infix regex matches the string
 print(match(infixes, string), infixes, string)
 
 Output: 
 False (a.(b|d))* abc
-# This tells that this regex infix does not match with this string
+#### This tells that this regex infix does not match with this string
 
 ====================================================
 crtl+c and then press the 'Enter' key to exit prompt
 ====================================================
 
-# Problems I had
+# Problems I encountered
 Besides the typical errors of misspelling and missing :, ), etc. I had one problem that stopped my progress with the project. When the match function was called all the matches would come out as 'False' and 'None'. After attempting to find errors that are not clearly and do not cause the code to crash I tracked it down to my indentation in the for loop in the match function. After I fixed the indentation the output displayed both 'False' and 'True'.
 
-# links:
+#### links:
 https://jakevdp.github.io/WhirlwindTourOfPython/14-strings-and-regular-expressions.html
 https://docs.python.org/3.3/howto/regex.html
 https://www.tutorialspoint.com/python/python_reg_expressions.htm
@@ -200,24 +201,24 @@ https://en.wikipedia.org/wiki/Thompson%27s_construction
 https://www.youtube.com/watch?reload=9&v=RYNN-tb9WxI
 https://www.w3schools.com/python/python_functions.asp
 
-# References
+#### References
 https://web.microsoftstream.com/video/a29536d4-e975-4172-a470-40b4fe28866e
 https://web.microsoftstream.com/video/29de6c7c-9379-46d3-99e8-8a3dbafe391f
 https://web.microsoftstream.com/video/1b3e7f4f-69e0-4316-853f-c63b14f9c36a
 
 # References for code
-# Functions
+#### Functions
 https://www.w3schools.com/python/python_functions.asp
-# Shunting Yard Algorithm
+#### Shunting Yard Algorithm
 https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_01.html
 https://web.microsoftstream.com/video/cfc9f4a2-d34f-4cde-afba-063797493a90
 http://www.martinbroadhurst.com/shunting-yard-algorithm-in-python.html
-# Thompson's Construction
+#### Thompson's Construction
 https://web.microsoftstream.com/video/5e2a482a-b1c9-48a3-b183-19eb8362abc9
 https://xysun.github.io/posts/regex-parsing-thompsons-algorithm.html
-# Matching
+#### Matching
 https://web.microsoftstream.com/video/6b4ba6a4-01b7-4bde-8f85-b4b96abc902a
-# Prompt
+#### Prompt
 https://stackoverflow.com/questions/70797/user-input-and-command-line-arguments
 https://stackabuse.com/getting-user-input-in-python/
 https://stackoverflow.com/questions/3754620/a-basic-question-about-while-true
