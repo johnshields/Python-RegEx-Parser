@@ -1,9 +1,3 @@
-# Graph Theory Project
-
-#### G00348436 - John Shields
-
-ReadMe for Graph Theory Project
-
 # Project Statement
 You must write a program in the Python programming language that can build a non-deterministic finite automaton (NFA) from a regular expression, and can use the NFA to check if the regular expression matches any given string of text.
 
