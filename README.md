@@ -10,9 +10,9 @@ A regular expression is a string containing a series of characters, some of whic
 When you want to perform string matching operations that are more complex than the operations, you use regular expressions.
 
 #### Special Characters
-
+```bash
 ., |, *, +, ?, (), $
-
+```
 . concatenates two characters. So, a.b means an a followed by a b
 
 | means or. So, a|b means an a or a b
@@ -35,20 +35,23 @@ Takes regular expressions from infix notation to postfix notation
 
 Concatenates operations
 Infix:
+```bash
 a.b = a followed by b
 a|b = a or b
 a* = any number of a's (including 0's)
-
+```
 Postfix:
+```bash
 ab. = a followed by b
 ab| = an or b
 a* = any number of a's (including 0's)
 
 E.g. - (a|b).(a*|b*) becomes ab|a*b*|
-
+```
 set up a specials dictionary:
+```bash
 specials = {'*': 50, '.': 40, '|': 30, '+':40, '?':35}
-
+```
 set up a for loop to search for the Special Characters
 - looks for c in specials dictionary, if not found, give value 0
 - looks for top of stack in specials dictionary,  if not found, give value 0
@@ -65,8 +68,10 @@ An NFA is represented by its initial and accepts states
 set up classes
 
 In Python a function is defined using the def keyword:
+```bash
 def my_function():
   print("Hello from a function")
+```
 
 Algorithm:
 A function has a stack of NFAs, the pofix allows to loop one character at a time until the regular expression is complete.
@@ -87,7 +92,6 @@ The stack works as last in first out
 
 - nfastack should only have a single nfa on it at the point.  
 
-
 #### Following e arrows
 
 1. Return the set of states that can be reached from state following e arrows
@@ -100,10 +104,10 @@ The stack works as last in first out
 
 #### Matching Regular Expressions
 
-==================================
+```bash
 'current' = THE CURRENT SET
 'upcomin' = THE NEXT SET UPCOMING
-==================================
+```
 
 Shunt and compile the regular expression from the funtions in code
 1. Call the shunt and compiletom function
@@ -120,13 +124,19 @@ Shunt and compile the regular expression from the funtions in code
 #### Testing the Shunting Yard Algorithm
 Testing the Shunting Yard Algorithm to see if actually takes a Regular Expression from infix notion to postfix notation.
 
+```bash
 regex e.g. = (a.b)|(c*.d)
+```
 
 #### Print the calling of the fuction 'shunt'
+```bash
 print(shunt("(a.b)|(c*.d)"))
+```
 
 Output:
+```bash
 (a.b)|(c*.d) to ab.c*d.|
+```
 
 # Testing Thompson's Construction
 
@@ -136,51 +146,65 @@ Test to see if the compiletom function can actually make a regex into a NFA.
 print(compiletom("ab.cd.|"))
 
 Output:
+```bash
 <__main__.nfa object at 0x0000028BACDB97F0>
+```
 
 #### Testing Matching Regular Expressions
 1. Create list of infix regex + Strings to match against the regex infixes.
+```bash
 infixes = ["a.b.c" ,"a.b.c*, a.(b|d).c*", "(a.(b|d))*", "a.(b.b)*.c"]
-
+```
 2. Double for loop. For loops through the regex and strings.
+```bash
 strings = ["abc", "abbc", "abcc", "abad", "abbbc"]
+```
 
 3. The match function prints out True/False if the infix regex matches the string.
-
+```bash
 infix = a.b.c
 string = abc
-
+```
 #### Print the calling of the function 'match'
+```bash
 print(match(exp, res), exp, res)
+```
 
 Output:
+```bash
 True a.b.c abc
+```
+
 #### This tells that this regex infix matches with this string
 
 #### Prompt for tests to match Regular Expressions
 
 Type in any Infix and string to be matched and tested
-
+```bash
 infix = (a.(b|d))* 
 string = abc
-
+```
 while loop prints out True/False if the infix regex matches the string
 
 #### Function prints out True/False if the infix regex matches the string
+```bash
 print(match(infixes, string), infixes, string)
+```
 
 Output: 
+```bash
 False (a.(b|d))* abc
+```
 #### This tells that this regex infix does not match with this string
 
-====================================================
+```bash
 crtl+c and then press the 'Enter' key to exit prompt
-====================================================
+```
 
-# Problems I encountered
+# Problems encountered
 Besides the typical errors of misspelling and missing :, ), etc. I had one problem that stopped my progress with the project. When the match function was called all the matches would come out as 'False' and 'None'. After attempting to find errors that are not clearly and do not cause the code to crash I tracked it down to my indentation in the for loop in the match function. After I fixed the indentation the output displayed both 'False' and 'True'.
 
-#### links:
+#### References:
 https://jakevdp.github.io/WhirlwindTourOfPython/14-strings-and-regular-expressions.html
 https://docs.python.org/3.3/howto/regex.html
 https://www.tutorialspoint.com/python/python_reg_expressions.htm
@@ -195,7 +219,7 @@ https://en.wikipedia.org/wiki/Thompson%27s_construction
 https://www.youtube.com/watch?reload=9&v=RYNN-tb9WxI
 https://www.w3schools.com/python/python_functions.asp
 
-#### References
+#### Lab References
 https://web.microsoftstream.com/video/a29536d4-e975-4172-a470-40b4fe28866e
 https://web.microsoftstream.com/video/29de6c7c-9379-46d3-99e8-8a3dbafe391f
 https://web.microsoftstream.com/video/1b3e7f4f-69e0-4316-853f-c63b14f9c36a
