@@ -5,6 +5,17 @@
 alt="GMIT Logo" width="500" height="200"/>
 </p></a>
 
+## Project Details
+| **Project Title** | Python RegEx Parser |
+| :------------- |:-------------|
+| **Course**              | BSc in Software Development |
+| **Module**              | Graphy Theory |
+| **Institute**           | [Galway-Mayo Institute of Technology](https://www.gmit.ie/) |
+| **Students**            | [John Shields](https://github.com/johnshields) |
+| **Module Lecturer**     | Ian McLoughlin |
+
+***
+
 # Python RegEx Parser
 
 A program in Python that can build a Non-Deterministic Finite Automaton from a Regular Expression.
