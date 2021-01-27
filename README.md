@@ -11,7 +11,7 @@ alt="GMIT Logo" width="500" height="200"/>
 | **Course**              | BSc in Software Development |
 | **Module**              | Graphy Theory |
 | **Institute**           | [Galway-Mayo Institute of Technology](https://www.gmit.ie/) |
-| **Students**            | [John Shields](https://github.com/johnshields) |
+| **Student**            | [John Shields](https://github.com/johnshields) |
 | **Module Lecturer**     | Ian McLoughlin |
 
 ***
