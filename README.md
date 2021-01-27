@@ -1,3 +1,10 @@
+<h1 align="center">Graph Theory</h1>
+
+<a href="https://www.gmit.ie/" >
+<p align="center"><img src="http://password.gmit.ie/images/logo.png"
+alt="GMIT Logo" width="325" height="100"/>
+</p></a>
+
 # Python RegEx Parser
 
 A program in Python that can build a Non-Deterministic Finite Automaton from a Regular Expression.
