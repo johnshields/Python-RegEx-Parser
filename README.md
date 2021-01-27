@@ -13,6 +13,7 @@ alt="GMIT Logo" width="500" height="200"/>
 | **Institute**           | [Galway-Mayo Institute of Technology](https://www.gmit.ie/) |
 | **Student**            | [John Shields](https://github.com/johnshields) |
 | **Module Lecturer**     | Ian McLoughlin |
+| **Grade Achieved**     | A |
 
 ***
 
