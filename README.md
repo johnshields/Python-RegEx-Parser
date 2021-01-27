@@ -1,8 +1,8 @@
 <h1 align="center">Graph Theory</h1>
 
 <a href="https://www.gmit.ie/" >
-<p align="center"><img src="http://password.gmit.ie/images/logo.png"
-alt="GMIT Logo" width="325" height="100"/>
+<p align="center"><img src="https://i.ibb.co/f1ZQSkt/logo-gmit.png"
+alt="GMIT Logo" width="500" height="200"/>
 </p></a>
 
 # Python RegEx Parser
