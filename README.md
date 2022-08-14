@@ -19,7 +19,7 @@ alt="GMIT Logo" width="500" height="200"/>
 
 # Python RegEx Parser
 
-A program in Python that can build a Non-Deterministic Finite Automaton from a Regular Expression.
+A Python program to build Non-Deterministic Finite Automatons from Regular Expressions using Thompson’s construction. 
 ***
 ## Run the Project:
 #### Requirements:
