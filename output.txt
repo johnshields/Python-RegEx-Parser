@@ -1,2 +1,1 @@
-Infix and String match (False, 'exit', 'exit') 
-
+(False, '(a.(b|d))* ', 'abc')

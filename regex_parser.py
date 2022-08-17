@@ -294,7 +294,7 @@ def executioner():
             print(match(infixes, string), infixes, string, '\n')
 
             a_file = open("output.txt", "w")
-            text = f'Infix and String match {match(infixes, string), infixes, string} \n'
+            text = match(infixes, string), infixes, string
             print(text, file=a_file)
             a_file.close()
         except (KeyboardInterrupt, EOFError, SystemExit):
