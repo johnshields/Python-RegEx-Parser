@@ -293,7 +293,7 @@ def executioner():
             # function prints out True/False if the infix regex matches the string
             print(match(infixes, string), infixes, string, '\n')
 
-            a_file = open("output.txt", "w")
+            a_file = open("bash_tests/output.txt", "w")
             text = match(infixes, string), infixes, string
             print(text, file=a_file)
             a_file.close()
